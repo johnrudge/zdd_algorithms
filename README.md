@@ -7,7 +7,7 @@ Zdd algorithms is a Python library that implements the zdd algorithms that are d
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install zdd_wiki_algorithms.
 
 ```bash
-pip install zdd_algorithms
+pip install zdd-algorithms
 ```
 
 ## Zero-suppressed decision diagram
@@ -15,7 +15,7 @@ pip install zdd_algorithms
 Zdd are a special kind of binary decision diagram that represents a set of sets.
 
 <p align="center">
-  <img src="https://github.com/Thilo-J/zdd_algorithms/blob/main/13_23_12.png" alt="zdd"/>
+  <img src="https://raw.githubusercontent.com/Thilo-J/zdd_algorithms/e4185fbbc28a4c59e93c847044b9b9964523dd19/13_23_12.png" alt="zdd"/>
 </p>
 
 This Zdd represents the set {{1,3},{2,3},{1,2}} \
@@ -57,7 +57,7 @@ zdd.create_image(union)
 ```
 
 <p align="center">
-  <img src="https://github.com/Thilo-J/zdd_algorithms/blob/main/13_23_12.png" alt="zdd"/>
+  <img src="https://raw.githubusercontent.com/Thilo-J/zdd_algorithms/e4185fbbc28a4c59e93c847044b9b9964523dd19/13_23_12.png" alt="zdd"/>
 </p>
 
 ## Contributing
