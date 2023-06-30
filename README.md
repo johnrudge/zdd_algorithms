@@ -13,7 +13,7 @@ pip install zdd_algorithms
 ## Zero-suppressed decision diagram
 
 Zdd are a special kind of Binary decision diagram that represents a set of sets.
-![alt-text](https://en.wikipedia.org/wiki/Zero-suppressed_decision_diagram#/media/File:Figure_4_ZDD_family_set.svg)
+![alt-text](https://github.com/Thilo-J/zdd_algorithms/blob/main/13_23_12.png)
 This Zdd represents the set {{1,3},{2,3},{1,2}} \
 Every node has a exactly 2 outgoing edges LO and HI. The LO edge is usally represented by a dotted line and the HI edge with a solid line.
 The easiest way to get the set from a visual zdd by hand is to take every path from the root node to the {ø} node(⊤ is also often used as a label for this node).\
@@ -30,17 +30,26 @@ Therefor this zdd represents the set {{1,3},{2,3},{1,2}}
 Since we cannot have a set of sets in python we use set of frozensets when converting a zdd to the set representation and vice versa
 
 ```python
-import zdd
+import zdd_algorithms as zdd
 
-# Creates a zdd node that represents the set {{1,3,4},{2,4}}
-foobar.pluralize('word')
+# Creates a zdd node that represents the set {{1,3},{2,3}}
+set1 = {
+    frozenset({1,3}),
+    frozenset({2,3})
+}
+zdd1 = zdd.to_zdd(set1)
 
-# returns 'geese'
-foobar.pluralize('goose')
+set2 = {
+    frozenset({1,2})
+}
+zdd2 = zdd.to_zdd(set2)
 
-# returns 'phenomenon'
-foobar.singularize('phenomena')
+union = zdd.union(zdd1, zdd2)
+
+zdd.create_image(union)
 ```
+
+![alt-text](https://github.com/Thilo-J/zdd_algorithms/blob/main/13_23_12.png)
 
 ## Contributing
 
