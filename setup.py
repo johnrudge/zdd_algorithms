@@ -9,11 +9,6 @@ with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
 
 VERSION = '0.1.0'
 DESCRIPTION = 'A package that implements zdd algorithms'
-LONG_DESCRIPTION = 'This package implements all the algorithms described on the wiki page of zdds+\
-        (union, intersection, difference, subset0, subset1, change and count). +\
-        They are not optimized and without caching. This package should be used to learn zdds and +\
-        play around with them. In addition the algorithms there is also a visualization function and functions +\
-        that can make a zdd out of a set and vice versa.'
 
 # Setting up
 setup(
@@ -23,7 +18,8 @@ setup(
     author_email="<thilo.j.la@gmail.com>",
     description=DESCRIPTION,
     long_description_content_type="text/markdown",
-    long_description=long_description,
+    long_description=open('README.md').read(),
+    url="https://github.com/Thilo-J/zdd_algorithms",
     packages=find_packages(),
     install_requires=['graphviz'],
     keywords=['python', 'zdd', 'bdd', 'zsdd', 'zero-suppressed', 'decision diagram'],
