@@ -1,6 +1,6 @@
 # Zdd Algorithms
 
-Zdd Algorithms is a Python library that implements the zdd algorithms that are described on the wikipedia [page](https://en.wikipedia.org/wiki/Zero-suppressed_decision_diagram)
+Zdd algorithms is a Python library that implements the zdd algorithms that are described on the [wikipedia page](https://en.wikipedia.org/wiki/Zero-suppressed_decision_diagram). With some additional functions for creating a zdd from a set, a set from a zdd and a function to create an image of the zdd.
 
 ## Installation
 
@@ -12,7 +12,7 @@ pip install zdd_algorithms
 
 ## Zero-suppressed decision diagram
 
-Zdd are a special kind of Binary decision diagram that represents a set of sets. \
+Zdd are a special kind of binary decision diagram that represents a set of sets.
 
 <p align="center">
   <img src="https://github.com/Thilo-J/zdd_algorithms/blob/main/13_23_12.png" alt="zdd"/>
@@ -22,7 +22,7 @@ This Zdd represents the set {{1,3},{2,3},{1,2}} \
 Every node has a exactly 2 outgoing edges LO and HI. The LO edge is usally represented by a dotted line and the HI edge with a solid line.
 The easiest way to get the set from a visual zdd by hand is to take every path from the root node to the {ø} node(⊤ is also often used as a label for this node).\
 Every path represents a set and all paths combined is the set of sets that the Zdd represents.
-In this example there are 3 paths. \
+In this example there are 3 paths from the root node to {ø}. \
 If a node has a LO edge in the path that nodes value is ignored. All the other values together represents a set \
 3 → 2 → {ø} This path represents the set {3,2} \
 3 ⇢ 2 → 1 → {ø} This path represents the set {1,2} \
@@ -36,12 +36,12 @@ Since we cannot have a set of sets in python we use set of frozensets when conve
 ```python
 import zdd_algorithms as zdd
 
-# Creates a zdd node that represents the set {{1,3},{2,3}}
+# Creates a set of frozensets
 set1 = {
     frozenset({1,3}),
     frozenset({2,3})
 }
-# Create zdd from the set
+# Create zdd from the set. This zdd represent now the set {{1,3},{2,3}}
 zdd1 = zdd.to_zdd(set1)
 
 set2 = {
@@ -49,7 +49,7 @@ set2 = {
 }
 zdd2 = zdd.to_zdd(set2)
 
-# Create union of two zdds
+# Create an union of two zdds
 union = zdd.union(zdd1, zdd2)
 
 # Create .PNG image of the zdd
