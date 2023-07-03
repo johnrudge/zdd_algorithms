@@ -7,8 +7,8 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = '0.1.3'
-DESCRIPTION = 'A package that implements zdd algorithms'
+VERSION = '0.1.4'
+DESCRIPTION = 'Implements the zdd algorithms that are on the wiki page'
 LONG_DESCRIPTION = 'This package implements all the algorithms described on the wiki page of zdds+\
         (union, intersection, difference, subset0, subset1, change and count). +\
         They are not optimized and without caching. This package should be used to learn zdds and +\
