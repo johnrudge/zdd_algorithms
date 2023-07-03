@@ -4,7 +4,7 @@ Zdd algorithms is a Python library that implements the zdd algorithms that are d
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install zdd_wiki_algorithms.
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install zdd_algorithms.
 
 ```bash
 pip install zdd-algorithms
@@ -52,7 +52,7 @@ zdd2 = zdd.to_zdd(set2)
 # Create an union of two zdds
 union = zdd.union(zdd1, zdd2)
 
-# Create .PNG image of the zdd
+# Create .PNG image of the zdd. This needs graphviz to be installed! 
 zdd.create_image(union)
 ```
 
