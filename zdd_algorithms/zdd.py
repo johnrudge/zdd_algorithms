@@ -102,7 +102,7 @@ def create_image(P:ZddNode, file_name:str="ZDD") -> None:
             add_nodes_edges(node.right)
         visited.add(id(node))
     add_nodes_edges(P)
-    dot.render(file_name, view=True, format='png')
+    dot.render(file_name, view=False, format='png')
 
 
 def empty() -> ZddNode:
