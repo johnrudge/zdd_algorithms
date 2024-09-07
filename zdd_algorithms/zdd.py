@@ -47,6 +47,37 @@ def to_zdd(set_of_sets:set[frozenset[int]]) -> ZddNode:
     )
 
 
+def pick_iter(P:ZddNode):
+    """A generator for iterating over the set of sets
+
+    Args:
+        P (Zdd): Zdd node that represents a set of sets
+
+    Returns:
+        generator object
+    """
+    def preorder_traversal(node:ZddNode, parent:ZddNode, add:bool, current_set:set[int]):
+        if(add):
+            current_set.add(parent.top)
+        if(node == empty()):
+            pass
+        elif(node == base()):
+            yield frozenset(current_set)
+        else:
+            yield from preorder_traversal(node.left, node, False, current_set)
+            yield from preorder_traversal(node.right, node, True, current_set)
+            current_set.remove(node.top)
+        
+    if (P == empty()):
+        pass
+    elif (P == base()):
+        yield frozenset({})
+    else:
+        current_set = set()
+        yield from preorder_traversal(P.left, P, False, current_set)
+        yield from preorder_traversal(P.right, P, True, current_set)
+
+
 def to_set_of_sets(P:ZddNode) -> set[frozenset[int]]:
     """Creates a set of frozensets that P represents
 
@@ -56,25 +87,7 @@ def to_set_of_sets(P:ZddNode) -> set[frozenset[int]]:
     Returns:
         set[frozenset[int]]: The set of frozensets that P represents
     """
-    def preorder_traversal(node:ZddNode, parent:ZddNode, add:bool, current_set:set[int], set_of_sets:set[frozenset[int]]) -> None:
-        if(add):
-            current_set.add(parent.top)
-        if(node == empty()):
-            return
-        if(node == base()):
-            set_of_sets.add(frozenset(current_set))
-            return
-        preorder_traversal(node.left, node, False, current_set, set_of_sets)
-        preorder_traversal(node.right, node, True, current_set, set_of_sets)
-        current_set.remove(node.top)
-    
-    if (P == empty()): return set()
-    if (P == base()): return {frozenset({})}
-    set_of_sets = set()
-    current_set = set()
-    preorder_traversal(P.left, P, False, current_set, set_of_sets)
-    preorder_traversal(P.right, P, True, current_set, set_of_sets)
-    return set_of_sets
+    return set(pick_iter(P))
 
 
 def create_image(P:ZddNode, file_name:str="ZDD") -> None:

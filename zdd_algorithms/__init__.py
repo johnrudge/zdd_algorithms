@@ -5,6 +5,7 @@ from zdd_algorithms.zdd import count
 from zdd_algorithms.zdd import subset0
 from zdd_algorithms.zdd import subset1
 from zdd_algorithms.zdd import change
+from zdd_algorithms.zdd import pick_iter
 from zdd_algorithms.zdd import to_set_of_sets
 from zdd_algorithms.zdd import to_zdd
 from zdd_algorithms.zdd import get_node
